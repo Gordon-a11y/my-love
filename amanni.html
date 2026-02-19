@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>حب أماني 💖</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ffb6d9,#ff69b4,#ffc0cb);
+    overflow:hidden;
+    text-align:center;
+    color:white;
+}
+
+/* عنوان الصفحة */
+h1{
+    margin-top:40px;
+    font-size:50px;
+    text-shadow:0 0 20px white,0 0 40px pink;
+}
+
+/* قلب نابض */
+.heart{
+    width:120px;
+    height:120px;
+    background:red;
+    position:relative;
+    margin:30px auto;
+    transform:rotate(-45deg);
+    animation:beat 1s infinite;
+    box-shadow:0 0 40px red;
+}
+.heart:before,
+.heart:after{
+    content:"";
+    width:120px;
+    height:120px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
+}
+.heart:before{
+    top:-60px;
+    left:0;
+}
+.heart:after{
+    left:60px;
+    top:0;
+}
+@keyframes beat{
+    0%{transform:scale(1) rotate(-45deg);}
+    50%{transform:scale(1.2) rotate(-45deg);}
+    100%{transform:scale(1) rotate(-45deg);}
+}
+
+/* نص الحب */
+.love-text{
+    font-size:22px;
+    width:80%;
+    margin:auto;
+    line-height:1.8;
+    text-shadow:0 0 10px white;
+}
+
+/* زر */
+button{
+    margin-top:30px;
+    padding:12px 25px;
+    font-size:18px;
+    background:white;
+    color:#ff1493;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:0 0 15px white;
+    transition:0.3s;
+}
+button:hover{
+    background:#ff1493;
+    color:white;
+}
+
+/* قلوب متساقطة */
+.falling-heart{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    animation:fall 6s linear infinite;
+}
+@keyframes fall{
+    0%{transform:translateY(-100px); opacity:1;}
+    100%{transform:translateY(100vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 أماني 💖</h1>
+
+<div class="heart"></div>
+
+<div class="love-text">
+أماني... 🌸  
+أنتِ النور الذي يضيء قلبي ✨  
+وأجمل صدفة في حياتي 💕  
+كل نبضة في قلبي تنادي باسمك 💓  
+أحبك بحجم السماء وبعدد النجوم 🌙⭐  
+وجودك حياة… وابتسامتك سعادة لا تنتهي ♾️💗
+</div>
+
+<button onclick="showLove()">اضغطي ليظهر سري 💌</button>
+
+<script>
+function showLove(){
+    alert("أماني ❤️ أنتِ أجمل حب في الدنيا كلها 💖✨");
+}
+
+/* إنشاء قلوب متساقطة */
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("falling-heart");
+    heart.innerHTML="💗";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
